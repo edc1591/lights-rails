@@ -1,7 +1,7 @@
 module UserAuthenticationService
   module_function
 
-  def authenticate_with_password(user, attempt)
+  def authenticate_with_password!(user, attempt)
     user && BCrypt::Password.new(user.password) == attempt
   end
 

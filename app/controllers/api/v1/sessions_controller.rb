@@ -1,13 +1,13 @@
-class Api::V1::SessionsController < Api:V1:ApiController
+class Api::V1::SessionsController < Api::V1::ApiController
 	skip_before_filter :api_session_token_authenticate!, only: [:create]
 
 	def create
     if params[:username]
       @user = User.find_by_username(params[:username])
-      token.user = @user if _provided_valid_password? || _provided_valid_api_key?
+      current_api_session_token.user = @user if _provided_valid_password? || _provided_valid_api_key?
     end
 
-    respond_with token
+    render :json => current_api_session_token
   end
 
   private

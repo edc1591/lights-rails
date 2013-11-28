@@ -1,4 +1,4 @@
-class ApiSessionToken < ActiveRecord::Base
+class ApiSessionToken
   TTL = 20.minutes
 
   def self.store
@@ -11,7 +11,7 @@ class ApiSessionToken < ActiveRecord::Base
   end
 
   def token
-    @token ||= MicroToken.generate 128
+    @token ||= SecureRandom.urlsafe_base64(nil, false)
   end
 
   def ttl
@@ -32,7 +32,7 @@ class ApiSessionToken < ActiveRecord::Base
   def user
     return if expired?
     store[:user]
-  endo
+  end
 
   def user=(user)
     store[:user] = user

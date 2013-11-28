@@ -2,7 +2,6 @@ class Api::V1::ApiController < ApplicationController
 	before_filter :api_session_token_authenticate!
 
   private
-
   def signed_in?
     !!current_api_session_token.user
   end
@@ -20,7 +19,7 @@ class Api::V1::ApiController < ApplicationController
   end
 
   def _authorization_header
-    request.headers['HTTP_AUTHORIZATION']
+    params[:auth_token]
   end
 
   def _not_authorized message = "Not Authorized"
