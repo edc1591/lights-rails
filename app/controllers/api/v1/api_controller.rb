@@ -1,5 +1,4 @@
 class Api::V1::ApiController < ApplicationController
-
 	before_filter :api_session_token_authenticate!
 
   private
