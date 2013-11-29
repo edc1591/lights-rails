@@ -9,4 +9,8 @@ class WebsocketController < WebsocketRails::BaseController
   	
   end
 
+  def x10_command
+  	puts 'hi'
+  end
+
 end
