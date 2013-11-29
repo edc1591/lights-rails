@@ -5,4 +5,8 @@ class WebsocketController < WebsocketRails::BaseController
     controller_store[:message_count] = 0
   end
 
+  def client_connected
+  	
+  end
+
 end
