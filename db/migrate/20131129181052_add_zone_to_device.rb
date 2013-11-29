@@ -1,5 +1,5 @@
 class AddZoneToDevice < ActiveRecord::Migration
   def change
-    add_column :devices, :zone, :integer
+    add_column :x10devices, :zone, :integer
   end
 end
