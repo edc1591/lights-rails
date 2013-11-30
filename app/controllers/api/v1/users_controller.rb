@@ -10,7 +10,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 	end
 
 	def has_password
-		user = User.find(:username => params[:username])
+		user = User.where(:username => params[:username]).first
 		if user.password
 			render :json => {:has_password => true}
 		else
@@ -19,7 +19,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 	end
 
 	def set_password
-		user = User.find(:username => params[:username])
+		user = User.where(:username => params[:username]).first
 		user.password = params[:password]
 		user.save
 	end
