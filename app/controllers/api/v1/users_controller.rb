@@ -12,9 +12,9 @@ class Api::V1::UsersController < Api::V1::ApiController
 	def has_password
 		user = User.where(:username => params[:username]).first
 		if user.password.blank?
-			render :json => {:has_password => true}
-		else
 			render :json => {:has_password => false}
+		else
+			render :json => {:has_password => true}
 		end
 	end
 
