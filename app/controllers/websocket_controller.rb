@@ -16,7 +16,9 @@ class WebsocketController < WebsocketRails::BaseController
 
   def command_collection
   	message[:events].each do |event|
+  		puts event
 			broadcast_message :command, event
+			sleep 1
 		end
   end
 
