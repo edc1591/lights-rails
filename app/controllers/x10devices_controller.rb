@@ -6,6 +6,7 @@ class X10devicesController < ApplicationController
   def create
   	@device = X10device.new(params[:x10device])
   	@device.save
+  	redirect_to index
   end
 
   def edit
