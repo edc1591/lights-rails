@@ -21,6 +21,10 @@ class Api::V1::UsersController < Api::V1::ApiController
 	def set_password
 		user = User.where(:username => params[:username]).first
 		user.password = params[:password]
-		user.save
+		if user.save
+			render :json => {}
+		else
+			render :json => {}
+		end
 	end
 end
