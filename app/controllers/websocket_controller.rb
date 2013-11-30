@@ -10,6 +10,7 @@ class WebsocketController < WebsocketRails::BaseController
   end
 
   def command
+  	puts message
   	broadcast_message :command, message
   end
 
