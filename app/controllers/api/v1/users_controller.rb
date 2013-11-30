@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::ApiController
-	skip_before_filter :api_session_token_authenticate!, except: [:has_password, :set_password]
+	skip_before_filter :api_session_token_authenticate!, only: [:has_password, :set_password]
 
 	def allowed_devices
 		retVal = Array.new
