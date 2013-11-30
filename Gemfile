@@ -4,10 +4,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
+gem 'protected_attributes'
 gem 'pg'
 gem 'bcrypt-ruby'
 gem 'redis'
 gem 'websocket-rails'
+gem 'kaminari'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

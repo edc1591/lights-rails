@@ -1,0 +1,15 @@
+<h1>Edit X10 Device</h1>
+
+<%= form_for @device, :url => { :action => "update" }, :html => {:class => "form"} do |f| %>
+	<%= label_tag(:name, "Device Name:") %>
+  <%= f.text_field :name %><br>
+  <%= label_tag(:deviceId, "Device ID:") %>
+  <%= f.text_field :deviceId %><br>
+  <%= label_tag(:houseCode, "House Code:") %>
+  <%= f.text_field :houseCode %><br>
+  <%= label_tag(:deviceType, "Device Type:") %>
+  <%= f.text_field :deviceType %><br>
+  <%= label_tag(:zone, "Zone:") %>
+  <%= f.text_field :zone %><br>
+  <%= f.submit "Save" %>
+<% end %>

@@ -1,0 +1,12 @@
+<table class="gridtable">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>&nbsp;</th>
+  </thead>
+  <% @devices.each do |device| %>
+    <tr>
+      <td><%= link_to device.name, device %></td>
+    </tr>
+  <% end %>
+</table>
