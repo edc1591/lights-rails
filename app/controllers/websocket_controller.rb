@@ -15,8 +15,9 @@ class WebsocketController < WebsocketRails::BaseController
   end
 
   def command_collection
-  	puts message[:events]
-
+  	message[:events].each do |i|
+			puts i
+		end
   end
 
 end
