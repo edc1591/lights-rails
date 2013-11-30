@@ -6,7 +6,7 @@ class X10devicesController < ApplicationController
   def create
   	@device = X10device.new(params[:x10device])
   	@device.save
-  	redirect_to index
+  	redirect_to '/x10devices'
   end
 
   def edit
@@ -17,7 +17,7 @@ class X10devicesController < ApplicationController
   	@device = X10device.find_by_id(params[:id])
   	@device.update(params[:x10device])
   	@device.save
-  	redirect_to show
+  	redirect_to '/x10devices'
   end
 
   def index
