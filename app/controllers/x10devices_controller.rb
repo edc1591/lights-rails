@@ -16,9 +16,14 @@ class X10devicesController < ApplicationController
   	@device = X10device.find_by_id(params[:id])
   	@device.update(params[:x10device])
   	@device.save
+  	redirect_to show
   end
 
   def index
-    @devices = X10device.order(:id).page(params[:page]).per(100).includes(:name)
+    @devices = X10device.order(:id).page params[:page]
+  end
+
+  def show
+  	@device = X10device.find_by_id(params[:id])
   end
 end

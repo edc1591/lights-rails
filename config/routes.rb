@@ -4,7 +4,9 @@ LightsRails::Application.routes.draw do
   get "x10devices", to: 'x10devices#index'
   post "x10devices/create"
   get "x10devices/edit/:id", to: 'x10devices#edit'
-  patch "x10devices/edit/:id", to: 'x10devices#update'
+  patch "x10devices/:id", to: 'x10devices#update'
+  delete "x10devices/:id", to: 'x10devices#destroy'
+  get 'x10devices/:id', :to => 'x10devices#show', :as => :x10device
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do

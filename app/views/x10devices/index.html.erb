@@ -1,12 +1,26 @@
+<%= button_to "Add New", '/x10devices/new', :method => "get" %>
+
 <table class="gridtable">
   <thead>
     <th>ID</th>
     <th>Name</th>
+    <th>Device ID</th>
+    <th>House Code</th>
+    <th>Device Type</th>
+    <th>Zone</th>
     <th>&nbsp;</th>
   </thead>
   <% @devices.each do |device| %>
     <tr>
-      <td><%= link_to device.name, device %></td>
+      <td><%= link_to device.id, device %></td>
+      <td><%= device.name %></td>
+      <td><%= device.deviceId %></td>
+      <td><%= device.houseCode %></td>
+      <td><%= device.deviceType %></td>
+      <td><%= device.zone %></td>
     </tr>
   <% end %>
 </table>
+<center>
+  <%= paginate @devices, :window => 2 %>
+</center>

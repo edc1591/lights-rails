@@ -1,0 +1,10 @@
+<h1><%= @device.name %></h1>
+
+Device ID: <%= @device.deviceId %><br>
+House Code: <%= @device.houseCode %><br>
+Device Type: <%= @device.deviceType %><br>
+Zone: <%= @device.zone %><br><br>
+<%= button_to "Edit", '/x10devices/edit/'+@device.id.to_s, :method => "get" %>
+<%= button_to "Delete", x10devices_path+'/'+@device.id.to_s, :method => "delete" %>
+<br>
+<%= button_to "Back to List", '/x10devices', :method => "get" %>
