@@ -1,4 +1,5 @@
 LightsRails::Application.routes.draw do
+	root to: 'application#index'
 
   get "x10devices/new"
   get "x10devices", to: 'x10devices#index'
