@@ -5,6 +5,8 @@ class Api::V1::SessionsController < Api::V1::ApiController
     if params[:username]
       @user = User.find_by_username(params[:username])
       current_api_session_token.user = @user if _provided_valid_password? || _provided_valid_api_key?
+
+      puts params[:username]+" login"
     end
 
     render :json => current_api_session_token

@@ -6,7 +6,11 @@ class WebsocketController < WebsocketRails::BaseController
   end
 
   def client_connected
-  	
+  	puts "client connected"
+  end
+
+  def connection_closed
+    puts "client disconnected"
   end
 
   def command
