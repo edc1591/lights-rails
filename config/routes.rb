@@ -8,6 +8,7 @@ LightsRails::Application.routes.draw do
   patch "x10devices/:id", to: 'x10devices#update'
   delete "x10devices/:id", to: 'x10devices#destroy'
   get 'x10devices/:id', :to => 'x10devices#show', :as => :x10device
+  get 'colors/animations', :to => 'colors#animations'
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
