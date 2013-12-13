@@ -32,7 +32,7 @@ class WebsocketController < WebsocketRails::BaseController
 
   def maybe_save_state(message=nil)
     if message
-      if message[:event] == 1
+      if message[:event] != 9
         puts "saving current state"
         controller_store[:current_state] = message
       end
