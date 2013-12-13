@@ -8,6 +8,7 @@ WebsocketRails::EventMap.describe do
      subscribe :client_disconnected, :to => WebsocketController, :with_method => :client_disconnected
      subscribe :command, :to => WebsocketController, :with_method => :command
      subscribe :command_collection, :to => WebsocketController, :with_method => :command_collection
+     subscribe :current_state, :to => WebsocketController, :with_method => :current_state
   #
   # Here is an example of mapping namespaced events:
   #   namespace :product do
