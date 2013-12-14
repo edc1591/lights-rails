@@ -1,7 +1,4 @@
 class WebsocketController < WebsocketRails::BaseController
-  before_filter do
-    puts "received websocket command"
-  end
 
 	def initialize_session
     # perform application setup here
@@ -34,7 +31,8 @@ class WebsocketController < WebsocketRails::BaseController
   end
 
   def schedule_updated
-    puts "sending scheduled events for zone " + message[:zone]
+    puts "sending scheduled events"
+    puts message
     broadcast_message :schedule_updated, {:zone => message[:zone], :events => Event.where(:zone => message[:zone])}
   end
 
