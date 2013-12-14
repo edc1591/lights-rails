@@ -2,7 +2,7 @@ class Api::V1::ScheduleController < Api::V1::ApiController
 	before_filter :api_session_token_authenticate!
 
 	def show
-		render :json => {:animations => Event.all}
+		render :json => {:events => Event.all}
 	end
 
 	def create
@@ -28,6 +28,6 @@ class Api::V1::ScheduleController < Api::V1::ApiController
 
 	def show_for_zone
 		events = Event.where(:zone => params[:zone])
-		render :json => events, :status => :ok
+		render :json => {:events => events}, :status => :ok
 	end
 end
