@@ -5,6 +5,9 @@ gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'protected_attributes'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem "daemons"
 gem 'pg'
 gem 'bcrypt-ruby'
 gem 'redis'
