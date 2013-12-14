@@ -1,4 +1,7 @@
 class WebsocketController < WebsocketRails::BaseController
+  before_filter do
+    puts "received websocket command"
+  end
 
 	def initialize_session
     # perform application setup here
