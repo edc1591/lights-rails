@@ -16,8 +16,10 @@ class Api::V1::ScheduleController < Api::V1::ApiController
 	end
 
 	def update
-		if params[:id]
-			Event.update(params[:id], params[:schedule]) if params[:schedule]
+		@event = Event.find_by_id(params[:id])
+
+		if @event
+			Event.update(@event.id, params[:schedule]) if params[:schedule]
     	render :json => @event, :status => :ok
     else
     	render :json => {}, :code => :unprocessable_entity
