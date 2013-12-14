@@ -17,6 +17,7 @@ LightsRails::Application.routes.draw do
       post 'users/set_password', to: 'users#set_password'
       get 'colors/animations', :to => 'colors#animations'
       get 'schedule', :to => 'schedule#show'
+      post 'schedule', :to => 'schedule#create'
     end
   end
 end
