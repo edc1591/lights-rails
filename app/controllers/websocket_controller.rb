@@ -36,6 +36,14 @@ class WebsocketController < WebsocketRails::BaseController
     broadcast_message :schedule_updated, {:zone => message[:zone], :events => Event.where(:zone => message[:zone])}
   end
 
+  def toggle_event_state
+    puts "toggling event state"
+    puts message
+    event = Event.find_by_id(message[:id])
+    event.state = !event.state
+    event.save
+  end
+
   def maybe_save_state(message=nil)
     if message
       if message[:event] != 9
