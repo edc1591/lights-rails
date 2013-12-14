@@ -9,6 +9,7 @@ WebsocketRails::EventMap.describe do
      subscribe :command, :to => WebsocketController, :with_method => :command
      subscribe :command_collection, :to => WebsocketController, :with_method => :command_collection
      subscribe :current_state, :to => WebsocketController, :with_method => :current_state
+     subscribe :schedule_updated, :to => WebsocketController, :with_method => :schedule_updated
   #
   # Here is an example of mapping namespaced events:
   #   namespace :product do

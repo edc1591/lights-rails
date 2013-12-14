@@ -30,6 +30,11 @@ class WebsocketController < WebsocketRails::BaseController
     broadcast_message :current_state, controller_store[:current_state]
   end
 
+  def schedule_updated
+    puts "sending scheduled events for zone " + message[:zone]
+    broadcast_message :schedule_updated, {:zone => message[:zone], :events => Event.where(:zone => message[:zone])}
+  end
+
   def maybe_save_state(message=nil)
     if message
       if message[:event] != 9
