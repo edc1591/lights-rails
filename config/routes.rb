@@ -18,6 +18,8 @@ LightsRails::Application.routes.draw do
       get 'colors/animations', :to => 'colors#animations'
       get 'schedule', :to => 'schedule#show'
       post 'schedule', :to => 'schedule#create'
+      post 'schedule/:id', :to => 'schedule#update'
+      get 'schedule/:id', :to => 'schedule#show_for_zone'
     end
   end
 end

@@ -10,6 +10,7 @@ class CreateEvents < ActiveRecord::Migration
     	t.integer :brightness
     	t.integer :deviceId
     	t.integer :command
+    	t.integer :zone
       t.timestamps
     end
   end

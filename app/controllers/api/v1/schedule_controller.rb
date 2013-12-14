@@ -14,4 +14,20 @@ class Api::V1::ScheduleController < Api::V1::ApiController
 			render :json => {}, :code => :unprocessable_entity
 		end
 	end
+
+	def update
+		@event = Event.find_by_id(params[:id])
+
+		if @event
+			@event.safe_update(@event, params[:event]) if params[:event]
+    	render :json => @event, :status => :ok
+    else
+    	render :json => {}, :code => :unprocessable_entity
+		end
+	end
+
+	def show_for_zone
+		events = Event.where(:zone => params[:zone])
+		render :json => events, :status => :ok
+	end
 end
