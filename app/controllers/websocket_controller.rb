@@ -16,6 +16,7 @@ class WebsocketController < WebsocketRails::BaseController
   def command
   	puts message
     maybe_save_state message
+    record_metric message
   	broadcast_message :command, message
   end
 
@@ -49,6 +50,19 @@ class WebsocketController < WebsocketRails::BaseController
       if message[:event] != 9
         puts "saving current state"
         controller_store[:current_state] = message
+      end
+    end
+  end
+
+  def record_metric(message=nil)
+    # only record X10 events for now
+    if message[:event] == 9
+      device = X10device.find_by_id(message[:deviceId])
+      deviceName = device.name.gsub(/_/, ' ')
+      if message[:command] == 0
+        ::NewRelic::Agent.increment_metric("Custom/#{deviceName}/off")
+      elsif message[:command] == 1
+        ::NewRelic::Agent.increment_metric("Custom/#{deviceName}/on")
       end
     end
   end
