@@ -63,7 +63,7 @@ class WebsocketController < WebsocketRails::BaseController
     if message[:eventType] == 9
       device = X10device.where(:deviceId => message[:device], :houseCode => message[:houseCode], :zone => message[:zone]).first
       deviceName = device.name.gsub(/ /, '_')
-      puts "recording stat for #{deviceName}"
+      #puts "recording stat for #{deviceName}"
       if message[:command] == 0
         ::NewRelic::Agent.increment_metric("Custom/X10_Command_#{deviceName}/off")
       elsif message[:command] == 1
