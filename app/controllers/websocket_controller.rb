@@ -47,7 +47,7 @@ class WebsocketController < WebsocketRails::BaseController
 
   def maybe_save_state(message=nil)
     if message
-      if message[:event] != 9
+      if message[:eventType] != 9
         puts "saving current state"
         controller_store[:current_state] = message
       end
@@ -56,7 +56,7 @@ class WebsocketController < WebsocketRails::BaseController
 
   def record_metric(message=nil)
     # only record X10 events for now
-    if message[:event] == 9
+    if message[:eventType] == 9
       device = X10device.find_by_id(message[:deviceId])
       deviceName = device.name.gsub(/_/, ' ')
       if message[:command] == 0
