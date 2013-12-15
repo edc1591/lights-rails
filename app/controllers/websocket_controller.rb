@@ -58,7 +58,7 @@ class WebsocketController < WebsocketRails::BaseController
     # only record X10 events for now
 
     if message[:eventType] == 9
-      device = X10device.where(:deviceId => message[:device], :houseCode => message[:houseCode], :zone => message[:zone])
+      device = X10device.where(:deviceId => message[:device], :houseCode => message[:houseCode], :zone => message[:zone]).first
       deviceName = device.name.gsub(/ /, '_')
       if message[:command] == 0
         ::NewRelic::Agent.increment_metric("Custom/X10_Command_#{deviceName}/off")
