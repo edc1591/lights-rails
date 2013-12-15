@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213040057) do
+ActiveRecord::Schema.define(version: 20131214234737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 20131213040057) do
   create_table "api_session_tokens", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.integer  "eventType"
+    t.integer  "time"
+    t.string   "timeZone"
+    t.boolean  "state"
+    t.text     "repeat"
+    t.integer  "speed"
+    t.integer  "brightness"
+    t.integer  "deviceId"
+    t.integer  "command"
+    t.integer  "zone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "color"
   end
 
   create_table "users", force: true do |t|
