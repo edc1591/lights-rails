@@ -60,9 +60,9 @@ class WebsocketController < WebsocketRails::BaseController
       device = X10device.find_by_id(message[:deviceId])
       deviceName = device.name.gsub(/_/, ' ')
       if message[:command] == 0
-        ::NewRelic::Agent.increment_metric("Custom/Websocket/#{deviceName}_off")
+        ::NewRelic::Agent.increment_metric("Custom/#{deviceName}/off")
       elsif message[:command] == 1
-        ::NewRelic::Agent.increment_metric("Custom/Websocket/#{deviceName}_on")
+        ::NewRelic::Agent.increment_metric("Custom/#{deviceName}/on")
       end
     end
   end
