@@ -9,9 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-secret = ENV['LIGHTS_SECRET']
-if secret.length < 30
-  raise "Secret token cannot be loaded"
-else
-  LightsRails::Application.config.secret_token = secret
-end
+LightsRails::Application.config.secret_key_base = '93358c2e38857ca7f6037362c92fcefd7c48c61d9108f5f9e3e4aa4d4e3a34a8fef777d5d9cd91839994d084e50937342136c5cf5b8896c2aa0019e98cab9718'
