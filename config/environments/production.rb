@@ -77,4 +77,11 @@ LightsRails::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  LightsRails::Application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[Lights] ",
+    :sender_address => %{"Lights Rails" <no-replay@evancoleman.net>},
+    :exception_recipients => %w{evan@evancoleman.net}
+  }
 end
