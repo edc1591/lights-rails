@@ -9,6 +9,10 @@ class Api::V1::UsersController < Api::V1::ApiController
 		render :json => {:devices => retVal}
 	end
 
+	def color_zones
+		render :json => {:color_zones => current_user.color_zones}
+	end
+
 	def has_password
 		user = User.where(:username => params[:username]).first
 		if user.password.blank?

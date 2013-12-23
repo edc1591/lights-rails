@@ -15,6 +15,7 @@ LightsRails::Application.routes.draw do
     namespace :v1 do
       resource :sessions, only: [:create, :show, :destroy]
       get 'users/devices', to: 'users#allowed_devices'
+      get 'users/colors', to: 'users#color_zones'
       get 'users/has_password', to: 'users#has_password'
       post 'users/set_password', to: 'users#set_password'
       get 'colors/animations', :to => 'colors#animations'
