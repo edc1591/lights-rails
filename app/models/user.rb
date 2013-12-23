@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   validates_presence_of   :username,      on: :create
   validates_uniqueness_of :username,      on: :create
   #validates_presence_of   :password,      on: :create
-  serialize :devices, :color_zones
+  serialize :devices
+  serialize :color_zones
   attr_accessible :devices, :color_zones
 
   def password=(secret)
