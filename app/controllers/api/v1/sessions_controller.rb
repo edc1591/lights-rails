@@ -9,7 +9,7 @@ class Api::V1::SessionsController < Api::V1::ApiController
       puts params[:username]+" login"
     end
 
-    render :json => current_api_session_token
+    render :json => {:auth => current_api_session_token, :color_zones => @user.color_zones}
   end
 
   private

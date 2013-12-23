@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219030722) do
+ActiveRecord::Schema.define(version: 20131223201812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20131219030722) do
     t.string   "username"
     t.string   "password"
     t.text     "devices"
+    t.text     "color_zones"
   end
 
   create_table "x10devices", force: true do |t|
