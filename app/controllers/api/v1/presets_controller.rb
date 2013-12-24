@@ -11,16 +11,6 @@ class Api::V1::PresetsController < Api::V1::ApiController
 		end
 	end
 
-	def add_event
-		event = Event.new(params[:event])
-
-		if event.save
-			render :json => @event, :code => :ok
-		else
-			render :json => {}, :code => :unprocessable_entity
-		end
-	end
-
 	def show
 		render :json => {:presets => Preset.all}
 	end
