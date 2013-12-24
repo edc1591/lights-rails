@@ -23,10 +23,10 @@ class WebsocketController < WebsocketRails::BaseController
   def command_collection
     # TODO: Pickup current state from presets
   	puts message
+    broadcast_message :command_collection, message
     message[:events].each do |device|
       record_metric device
     end
-  	broadcast_message :command_collection, message
   end
 
   def current_state

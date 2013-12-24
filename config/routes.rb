@@ -22,7 +22,10 @@ LightsRails::Application.routes.draw do
       get 'schedule', :to => 'schedule#show'
       post 'schedule', :to => 'schedule#create'
       post 'schedule/:id', :to => 'schedule#update'
-      get 'schedule/:id', :to => 'schedule#show_for_zone'
+      get 'schedule/:zone', :to => 'schedule#show_for_zone'
+      get 'presets', :to => 'presets#show'
+      post 'presets', :to => 'presets#create'
+      post 'presets/:id', :to => 'presets#update'
     end
   end
 end

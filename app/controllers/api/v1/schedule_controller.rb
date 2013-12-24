@@ -24,7 +24,8 @@ class Api::V1::ScheduleController < Api::V1::ApiController
 	end
 
 	def show_for_zone
-		events = Event.where(:zone => params[:zone])
+		zone = params[:zone]
+		events = Event.where("time IS NOT NULL AND zone = #{zone}")
 		render :json => {:events => events}, :status => :ok
 	end
 end
