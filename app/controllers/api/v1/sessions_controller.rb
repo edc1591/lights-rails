@@ -6,7 +6,7 @@ class Api::V1::SessionsController < Api::V1::ApiController
       @user = User.where(:username => params[:username]).first
       current_api_session_token.user = @user if _provided_valid_password? || _provided_valid_api_key?
 
-      puts params[:username]+" login"
+      puts @user.username+" login"
     end
 
     render :json => {:auth => current_api_session_token, :color_zones => @user.color_zones}
