@@ -3,7 +3,7 @@ class Api::V1::SessionsController < Api::V1::ApiController
 
 	def create
     if params[:username]
-      @user = User.find_by_username(params[:username])
+      @user = User.where(:username => params[:username]).first
       current_api_session_token.user = @user if _provided_valid_password? || _provided_valid_api_key?
 
       puts params[:username]+" login"
