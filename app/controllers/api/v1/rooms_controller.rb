@@ -4,10 +4,10 @@ class Api::V1::RoomsController < Api::V1::ApiController
 	def show
 		if params[:id]
 			room = Room.find_by_id(params[:id])
-			render :json => room, :code => :ok
+			render :json => room.to_json(include: :x10_devices), :code => :ok
 		else
-			render :json => {:rooms => Room.all}
+			render :json => {:rooms => Room.all.to_json(include: :x10_devices)}
 		end
 	end
-	
+
 end
