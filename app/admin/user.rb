@@ -16,11 +16,8 @@ ActiveAdmin.register User do
   form do |f|  
     f.inputs "User Associations" do  
       f.input :zones, :as => :select  
-    end  
-    f.inputs "User Details" do  
-      f.input :username  
-      f.input :password
-    end  
+    end
+    f.actions
   end  
   
 end
