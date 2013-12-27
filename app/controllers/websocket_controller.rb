@@ -61,7 +61,7 @@ class WebsocketController < WebsocketRails::BaseController
     # only record X10 events for now
 
     if message[:eventType] == 9
-      device = X10device.where(:deviceId => message[:device], :houseCode => message[:houseCode], :zone => message[:zone]).first
+      device = X10Device.where(:deviceId => message[:device], :houseCode => message[:houseCode], :zone => message[:zone]).first
       deviceName = device.name.gsub(/ /, '_')
       #puts "recording stat for #{deviceName}"
       if message[:command] == 0

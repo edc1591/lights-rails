@@ -1,4 +1,4 @@
-ActiveAdmin.register X10device do
+ActiveAdmin.register X10Device do
 
   
   # See permitted parameters documentation:
