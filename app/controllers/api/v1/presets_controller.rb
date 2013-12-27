@@ -2,7 +2,8 @@ class Api::V1::PresetsController < Api::V1::ApiController
 	before_filter :api_session_token_authenticate!
 
 	def create
-		@preset = Preset.new(params[:preset], :owner => current_user.id)
+		@preset = Preset.new(params[:preset])
+		@preset.owner = current_user.id
 
 		if @preset.save
 			render :json => @preset, :code => :ok
