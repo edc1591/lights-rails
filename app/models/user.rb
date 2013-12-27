@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   #validates_presence_of   :password,      on: :create
   serialize :devices
   serialize :color_zones
-  attr_accessible :devices, :color_zones
+  has_many :zones
 
   def password=(secret)
     write_attribute(:password, BCrypt::Password.create(secret))
