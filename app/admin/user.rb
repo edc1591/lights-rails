@@ -13,5 +13,14 @@ ActiveAdmin.register User do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+  form do |f|  
+    f.inputs "User Associations" do  
+      f.input :zones, :as => :select  
+    end  
+    f.inputs "User Details" do  
+      f.input :username  
+      f.input :password
+    end  
+  end  
   
 end
