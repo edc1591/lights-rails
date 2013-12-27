@@ -18,14 +18,20 @@ LightsRails::Application.routes.draw do
       get 'users/colors', to: 'users#color_zones'
       get 'users/has_password', to: 'users#has_password'
       post 'users/set_password', to: 'users#set_password'
+
       get 'colors/animations', :to => 'colors#animations'
+
       get 'schedule', :to => 'schedule#show'
       post 'schedule', :to => 'schedule#create'
       post 'schedule/:id', :to => 'schedule#update'
       get 'schedule/:zone', :to => 'schedule#show_for_zone'
+
       get 'presets', :to => 'presets#show'
       post 'presets', :to => 'presets#create'
       post 'presets/:id', :to => 'presets#update'
+
+      get 'rooms/:id', :to => 'rooms#show'
+      get 'rooms', :to => 'rooms#show'
     end
   end
 end
