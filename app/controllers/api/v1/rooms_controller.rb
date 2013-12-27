@@ -6,11 +6,7 @@ class Api::V1::RoomsController < Api::V1::ApiController
 			room = Room.find_by_id(params[:id])
 			render :json => room.to_json(include: :x10_devices), :code => :ok
 		else
-			retVal = Array.new
-			Room.all.each do |obj|
-				retVal.push obj.to_json(include: :x10_devices)
-			end
-			render :json => {:rooms => retVal}, :code => :ok
+			render :json => {:rooms => Room.all(:include => [:x10_devices]).to_json(:include => [:x10_devices])}
 		end
 	end
 
