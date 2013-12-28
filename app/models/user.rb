@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   end
 
   def has_colors
-  	self.zones do |zone|
+  	zones.each do |zone|
   		return true unless zone.has_colors == false
   	end
   	return false
