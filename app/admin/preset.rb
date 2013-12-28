@@ -19,7 +19,7 @@ ActiveAdmin.register Preset do
       f.input :owner
       f.input :events_raw, :as => :text
     end
-    f.buttons
+    f.actions
   end
   
 end
