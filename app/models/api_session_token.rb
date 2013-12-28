@@ -1,5 +1,5 @@
 class ApiSessionToken
-  TTL = 20.minutes
+  TTL = 24.hours
 
   def self.store
     @store ||= Hash.new
