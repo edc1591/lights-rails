@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates_presence_of   :username,      on: :create
   validates_uniqueness_of :username,      on: :create
   #validates_presence_of   :password,      on: :create
+  has_many :presets
   has_many :zones_users
   has_many :zones, through: :zones_users
 

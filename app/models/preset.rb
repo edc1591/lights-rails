@@ -1,6 +1,7 @@
 class Preset < ActiveRecord::Base
-	attr_accessible :name, :owner, :events
+	attr_accessible :name, :events, :user_id
 	attr_accessor :events_raw
+	belongs_to :user
 	serialize :events
 
 	def events_raw
