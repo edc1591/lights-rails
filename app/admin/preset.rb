@@ -16,7 +16,7 @@ ActiveAdmin.register Preset do
   form do |f|
     f.inputs "Preset" do
       f.input :name
-      f.input :owner
+      f.input :user
       f.input :events_raw, :as => :text
     end
     f.actions
