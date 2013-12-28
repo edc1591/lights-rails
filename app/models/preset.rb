@@ -1,14 +1,14 @@
 class Preset < ActiveRecord::Base
-	attr_accessible :name, :events, :user_id
+	attr_accessible :name, :events, :user_id, :events_raw
 	belongs_to :user
-	serialize :events
+	serialize :events, JSON
 
 	def events_raw
-    events.join("\n") unless self.events.nil?
+    read_attribute(:events).to_json
   end
 
   def events_raw=(values)
-    events = []
-    events = values.split("\n")
+  	json = JSON.parse values unless values.nil?
+    write_attribute(:events, json)
   end
 end
