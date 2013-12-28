@@ -13,5 +13,13 @@ ActiveAdmin.register Preset do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+  form do |f|
+    f.inputs "Preset" do
+      f.input :name
+      f.input :owner
+      f.input :events_raw, :as => :text
+    end
+    f.buttons
+  end
   
 end
