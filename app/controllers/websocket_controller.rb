@@ -37,7 +37,7 @@ class WebsocketController < WebsocketRails::BaseController
   def schedule_updated
     puts "sending scheduled events"
     puts message
-    broadcast_message :schedule_updated, {:zone => message[:zone], :events => Event.where(:zone => message[:zone])}
+    broadcast_message :schedule_updated, {:zone_id => message[:zone_id], :events => Event.where(:zone_id => message[:zone_id])}
   end
 
   def toggle_event_state
@@ -61,7 +61,7 @@ class WebsocketController < WebsocketRails::BaseController
     # only record X10 events for now
 
     if message[:eventType] == 9
-      device = X10Device.where(:deviceId => message[:device], :houseCode => message[:houseCode], :zone => message[:zone]).first
+      device = X10Device.where(:deviceId => message[:device], :houseCode => message[:houseCode], :zone_id => message[:zone_id]).first
       deviceName = device.name.gsub(/ /, '_')
       #puts "recording stat for #{deviceName}"
       if message[:command] == 0
