@@ -14,8 +14,8 @@ LightsRails::Application.routes.draw do
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resource :sessions, only: [:create, :show, :destroy]
-      get 'users/devices', to: 'users#allowed_devices'
-      get 'users/colors', to: 'users#color_zones'
+      get 'users/devices', to: 'users#devices'
+      get 'users/has_colors', to: 'users#has_colors'
       get 'users/has_password', to: 'users#has_password'
       post 'users/set_password', to: 'users#set_password'
 

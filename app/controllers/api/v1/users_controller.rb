@@ -1,16 +1,22 @@
 class Api::V1::UsersController < Api::V1::ApiController
 	skip_before_filter :api_session_token_authenticate!, only: [:has_password, :set_password]
 
-	def allowed_devices
-		retVal = Array.new
-		current_user.devices.each do |i|
-			retVal.push X10Device.find_by_id(i)
+	def devices
+		devices = Array.new
+		current_user.zones do |zone|
+			devices.push(zone.devices)
 		end
-		render :json => {:devices => retVal}
+		render :json => devices, :status => :ok
 	end
 
-	def color_zones
-		render :json => {:color_zones => current_user.color_zones}
+	def has_colors
+		has_colors = false
+		current_user.zones do |zone|
+			if zone.has_colors
+				has_colors = true
+			end
+		end
+		render :json => {:has_colors => has_colors}, :status => :ok
 	end
 
 	def has_password
