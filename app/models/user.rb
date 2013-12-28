@@ -11,4 +11,11 @@ class User < ActiveRecord::Base
   def password=(secret)
     write_attribute(:password, BCrypt::Password.create(secret))
   end
+
+  def has_colors
+  	self.zones do |zone|
+  		return true unless zone.has_colors == false
+  	end
+  	return false
+  end
 end
