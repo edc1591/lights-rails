@@ -4,7 +4,7 @@ Lights-Rails is a Ruby on Rails app that serves as the backend for the [Lights i
 
 ## Links
 
-* Documentation: <http://edc.me/lights/documentation.html>
+* Documentation: <https://github.com/edc1591/lights-rails/wiki>
 * Lights iOS app: <https://github.com/edc1591/Lights-iOS>
 * Lights bridge apps: <https://github.com/edc1591/lights-bridge>
 
