@@ -59,4 +59,4 @@ Tool                    | Description
 
 ## License
 
-Copyright (c) 2014 Evan Coleman, released under the [MIT license](License).
+Copyright (c) 2014 Evan Coleman, released under the [MIT license](LICENSE).
