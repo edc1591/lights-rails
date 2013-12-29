@@ -93,7 +93,7 @@ LightsRails::Application.configure do
   LightsRails::Application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[Lights] ",
-    :sender_address => %{"Lights Rails" <no-replay@evancoleman.net>},
-    :exception_recipients => %w{evan@evancoleman.net}
+    :sender_address => %{"Lights Rails" <#{ENV['EXCEPTION_SENDER']}>},
+    :exception_recipients => ENV['EXCEPTION_RECIPIENT']
   }
 end

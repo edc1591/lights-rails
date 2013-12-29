@@ -21,6 +21,7 @@ class X10devicesController < ApplicationController
   end
 
   def index
+    raise "error"
     @devices = X10Device.order(:id).page params[:page]
   end
 
