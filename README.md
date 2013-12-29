@@ -2,6 +2,12 @@
 
 Lights-Rails is a Ruby on Rails app that serves as the backend for the [Lights iOS app](https://github.com/edc1591/Lights-iOS) that allows you to control RGB LEDs and X10 devices.
 
+## Links
+
+* Documentation: <http://edc.me/lights/documentation.html>
+* Lights iOS app: <https://github.com/edc1591/Lights-iOS>
+* Lights bridge apps: <https://github.com/edc1591/lights-bridge>
+
 ## Installation
 
 This app is designed to be easily deployed to a service like Heroku. Serveral environmental variables must be set:
@@ -12,18 +18,24 @@ This app is designed to be easily deployed to a service like Heroku. Serveral en
 4. `EXCEPTION_SENDER` is the email address to send exception notifications from.
 5. `EXCEPTION_RECIPIENT` is the email address to send exception notifications to.
 
+Install dependencies
+
+    bundle install
+
 Create and seed the database
 
     rake db:setup
     
-and run the server
+And run the server
 
     bundle exec thin start
 
 
 ## Usage
 
-TODO: Write usage instructions
+You'll probably want to start by adding some users and X10 devices. This can all be done using Active Admin. Point your browser to `http://localhost:3000/admin` and login using "admin@example.com" as the username and "password" as the password. From here, you can create all the necessary models. You'll also probably want to change the default admin username and password. This would be the "Admin User" model.
+
+**TODO:** Make the `User` model editable in the admin panel.
 
 ## Contributing
 
@@ -33,14 +45,18 @@ TODO: Write usage instructions
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## History
+## Dependencies
 
-TODO: Write history
+Tool                    | Description
+----------------------- | -----------
+[Active Admin]          | Administration framework
+[Websocket-Rails]       | Websocket framework
+[Exception Notification]| Exception emails
 
-## Credits
-
-TODO: Write credits
+[Active Admin]: https://github.com/gregbell/activeadmin
+[Websocket-Rails]: https://github.com/websocket-rails/websocket-rails
+[Exception Notification]: https://github.com/smartinez87/exception_notification
 
 ## License
 
-TODO: Write license
+Copyright (c) 2014 Evan Coleman, released under the [MIT license](License).
