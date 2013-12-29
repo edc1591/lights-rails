@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Animation.create(name: 'Color Wipe', animationId: 3, speed: 150, brightness: 255)
+Animation.create(name: 'Rainbow', animationId: 2, speed: 180, brightness: 255)
+Animation.create(name: 'Rainbow Cycle', animationId: 6, speed: 180, brightness: 255)
+Animation.create(name: 'Bounce', animationId: 7, speed: 180, brightness: 255)
