@@ -79,6 +79,7 @@ GEM
       websocket-driver (>= 0.3.0)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
+    geocoder (1.1.9)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -194,6 +195,7 @@ DEPENDENCIES
   bcrypt-ruby
   coffee-rails (~> 4.0.0)
   exception_notification
+  geocoder
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
