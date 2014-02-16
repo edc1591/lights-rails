@@ -8,7 +8,7 @@ class Preset < ActiveRecord::Base
   end
 
   def events_raw=(values)
-  	json = JSON.parse values.to_a unless values.nil?
+  	json = JSON.parse values unless values.nil?
     write_attribute(:events, json)
   end
 end
