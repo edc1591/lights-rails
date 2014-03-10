@@ -34,7 +34,7 @@ LightsRails::Application.routes.draw do
       get 'rooms', :to => 'rooms#show'
       put 'rooms/:id/:command', :to => 'rooms#command'
 
-      put 'lights/:id/:command', :to => 'x10devices#command'
+      put 'lights/:id/:command', :to => 'x10_devices#command'
     end
   end
 end
