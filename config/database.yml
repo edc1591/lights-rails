@@ -17,7 +17,9 @@ test: &TEST
 production:
   adapter: postgresql
   encoding: utf8
-  database: lights_production
+  database: d3hc60hncngunu
   pool: 5
-  username: 
-  password:
+  username: tlgsapzuemejvq
+  password: AscDLAGUSYRk5B5_eoQoAb4_id
+  host: ec2-54-204-31-13.compute-1.amazonaws.com
+  sslmode: require

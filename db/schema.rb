@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224032255) do
+ActiveRecord::Schema.define(version: 20140216020755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,18 +73,25 @@ ActiveRecord::Schema.define(version: 20131224032255) do
     t.integer  "brightness"
     t.integer  "deviceId"
     t.integer  "command"
-    t.integer  "zone"
+    t.integer  "zone_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "color"
-    t.integer  "preset_id"
   end
 
   create_table "presets", force: true do |t|
     t.string   "name"
-    t.integer  "owner"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "events"
+    t.integer  "user_id"
+  end
+
+  create_table "rooms", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "has_colors"
   end
 
   create_table "users", force: true do |t|
@@ -92,18 +99,35 @@ ActiveRecord::Schema.define(version: 20131224032255) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "password"
-    t.text     "devices"
-    t.text     "color_zones"
+    t.integer  "zone_id"
   end
 
-  create_table "x10devices", force: true do |t|
+  create_table "x10_devices", force: true do |t|
     t.string   "name"
     t.integer  "deviceId"
     t.integer  "houseCode"
     t.integer  "deviceType"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "zone"
+    t.integer  "room_id"
+    t.integer  "zone_id"
   end
+
+  create_table "zones", force: true do |t|
+    t.boolean  "has_colors"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "zones_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "zone_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "zones_users", ["user_id"], name: "index_zones_users_on_user_id", using: :btree
+  add_index "zones_users", ["zone_id"], name: "index_zones_users_on_zone_id", using: :btree
 
 end

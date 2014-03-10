@@ -6,7 +6,8 @@ class WebsocketController < WebsocketRails::BaseController
   end
 
   def client_connected
-  	puts "client connected"
+  	puts "client connected, zone " + params[:zone_id]
+    WebsocketRails.users[params[:zone_id]] = connection
   end
 
   def client_disconnected
