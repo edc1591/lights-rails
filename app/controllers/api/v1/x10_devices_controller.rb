@@ -1,4 +1,5 @@
 class Api::V1::X10DevicesController < Api::V1::ApiController
+	before_filter :api_session_token_authenticate!
 
 	def command
 		device = X10Device.find_by_id(params[:id])
