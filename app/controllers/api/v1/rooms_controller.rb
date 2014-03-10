@@ -17,7 +17,7 @@ class Api::V1::RoomsController < Api::V1::ApiController
 		zones = Set.new
 		room.x10_devices.each do |device|
 			zones.add device.zone_id
-			d = {:command => params[:command], :zone_id => device.zone_id, :deviceId => device.deviceId, :houseCode => device.houseCode}
+			d = {:command => params[:command], :zone_id => device.zone_id, :deviceId => device.deviceId, :houseCode => device.houseCode, :eventType => 9}
 			object[:events].push d
 		end
 		zones.each do |zone|
