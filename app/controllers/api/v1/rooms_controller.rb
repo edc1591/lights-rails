@@ -20,6 +20,15 @@ class Api::V1::RoomsController < Api::V1::ApiController
 			d = {:command => params[:command], :zone_id => device.zone_id, :device => device.deviceId, :houseCode => device.houseCode, :eventType => 9}
 			object[:events].push d
 		end
+		if room.has_colors
+			if command == 0
+				d = {:color => [0,0,0], :eventType => 1}
+				object[:events].push d
+			elsif command == 1
+				d = {:brightness => 255, :speed => 200, :eventType => 2}
+				object[:events].push d
+			end
+		end
 		zones.each do |zone|
 			WebsocketRails.users[zone].send_message :command_collection, object
 		end
