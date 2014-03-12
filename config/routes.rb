@@ -37,6 +37,8 @@ LightsRails::Application.routes.draw do
       put 'rooms/:id/:command', :to => 'rooms#command'
 
       put 'lights/:id/:command', :to => 'x10_devices#command'
+
+      get 'beacons', :to => 'beacons#show'
     end
   end
 end
