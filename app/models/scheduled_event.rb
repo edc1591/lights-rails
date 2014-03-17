@@ -1,7 +1,7 @@
 class ScheduledEvent < ActiveRecord::Base
-	attr_accessible :name, :deviceId, :repeat, :eventType, :zone_id, :time, :timeZone, :state, :speed, :brightness, :command, :color
-	serialize :repeat
-	serialize :color
+	attr_accessible :name, :repeat, :time, :timeZone, :state, :event
+	serialize :repeat, Array
+	serialize :event, Hash
 	belongs_to :zone
 
 end
