@@ -1,4 +1,4 @@
-ActiveAdmin.register Event do
+ActiveAdmin.register ScheduledEvent do
 
   
   # See permitted parameters documentation:

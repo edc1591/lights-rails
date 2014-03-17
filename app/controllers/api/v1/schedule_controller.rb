@@ -2,11 +2,11 @@ class Api::V1::ScheduleController < Api::V1::ApiController
 	before_filter :api_session_token_authenticate!
 
 	def show
-		render :json => {:events => Event.all}
+		render :json => {:events => ScheduledEvent.all}
 	end
 
 	def create
-		@event = Event.new(params[:schedule])
+		@event = ScheduledEvent.new(params[:schedule])
 
 		if @event.save
 			render :json => @event, :code => :ok
@@ -16,8 +16,8 @@ class Api::V1::ScheduleController < Api::V1::ApiController
 	end
 
 	def update
-		if Event.update(params[:id], params[:schedule])
-    	render :json => Event.find_by_id(params[:id]), :status => :ok
+		if ScheduledEvent.update(params[:id], params[:schedule])
+    	render :json => ScheduledEvent.find_by_id(params[:id]), :status => :ok
     else
     	render :json => {}, :code => :unprocessable_entity
 		end
@@ -25,7 +25,7 @@ class Api::V1::ScheduleController < Api::V1::ApiController
 
 	def show_for_zone
 		zone = params[:zone]
-		events = Event.where("time IS NOT NULL AND zone = #{zone}")
+		events = ScheduledEvent.where("time IS NOT NULL AND zone = #{zone}")
 		render :json => {:events => events}, :status => :ok
 	end
 end
