@@ -18,6 +18,7 @@ LightsRails::Application.routes.draw do
       get 'users/has_colors', to: 'users#has_colors'
       get 'users/has_password', to: 'users#has_password'
       post 'users/set_password', to: 'users#set_password'
+      post 'users/register_device_token', to: 'users#register_device_token'
 
       get 'colors/animations', :to => 'colors#animations'
       put 'colors/animation/:id', :to => 'colors#animation'

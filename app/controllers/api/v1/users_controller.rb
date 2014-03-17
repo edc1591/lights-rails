@@ -5,6 +5,12 @@ class Api::V1::UsersController < Api::V1::ApiController
 		render :json => current_user.zones(include: :x10_devices).to_json(include: :x10_devices), :status => :ok
 	end
 
+	def register_device_token
+		current_user.device_token = params[:device_token]
+		current_user.save
+		render :nothing => true
+	end
+
 	def has_colors
 		has_colors = false
 		current_user.zones do |zone|
