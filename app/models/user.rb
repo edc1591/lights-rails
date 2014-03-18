@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :presets
   has_many :zones_users
   has_many :zones, through: :zones_users
+  attr_accessible :device_token
 
   def password=(secret)
     write_attribute(:password, BCrypt::Password.create(secret))
