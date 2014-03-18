@@ -1,0 +1,28 @@
+<%= form_tag(admin_dashboard_push_path, method: "post") do %>
+	<%= label_tag :alert, "Message:" %>
+	<%= text_field_tag :alert %>
+	</br>
+	<%= label_tag :badge, "Badge Count:" %>
+	<%= text_field_tag :badge, '0', size: 5 %>
+	</br>
+	<%= select_tag(:sound, options_for_select([['Silent', 'silent'], ['Default', 'default']])) %>
+	</br>
+	<ul>
+	  <% User.all.each do |user| %>
+	      <li>
+	        <%= check_box_tag 'user_ids[]', user.id -%>
+	        <%= h user.username -%>
+	      </li>
+	  <% end %>
+	</ul>
+	<button type="button" id="check_all">
+    Check / Uncheck All
+	</button>
+	</br>
+	</br>
+	<%= submit_tag "Send" %>
+<% end %>
+
+<script type='text/javascript'>
+	$('#check_all').on("click", function(){ $('input[type="checkbox"]').click(); });
+</script>
