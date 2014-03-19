@@ -120,14 +120,14 @@ ActiveRecord::Schema.define(version: 20140216020755) do
     t.datetime "updated_at"
   end
 
-  create_table "zones_users", force: true do |t|
+  create_table "rooms_users", force: true do |t|
     t.integer  "user_id"
-    t.integer  "zone_id"
+    t.integer  "room_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "zones_users", ["user_id"], name: "index_zones_users_on_user_id", using: :btree
-  add_index "zones_users", ["zone_id"], name: "index_zones_users_on_zone_id", using: :btree
+  add_index "rooms_users", ["user_id"], name: "index_rooms_users_on_user_id", using: :btree
+  add_index "rooms_users", ["room_id"], name: "index_rooms_users_on_room_id", using: :btree
 
 end
