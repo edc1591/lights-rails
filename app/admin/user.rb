@@ -15,7 +15,7 @@ ActiveAdmin.register User do
   # end
   form do |f|  
     f.inputs "User Associations" do  
-      f.input :zones, :as => :select  
+      f.input :rooms, :as => :select  
     end
     f.actions
   end  

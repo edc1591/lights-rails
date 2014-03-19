@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username,      on: :create
   #validates_presence_of   :password,      on: :create
   has_many :presets
-  has_many :zones_users
-  has_many :zones, through: :zones_users
+  has_many :rooms_users
+  has_many :rooms, through: :rooms_users
   attr_accessible :device_token
 
   def password=(secret)
@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
   end
 
   def has_colors
-  	zones.each do |zone|
-  		return true unless zone.has_colors == false
+  	rooms.each do |room|
+  		return true unless room.has_colors == false
   	end
   	return false
   end
