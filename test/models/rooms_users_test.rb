@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ZonesUsersTest < ActiveSupport::TestCase
+class RoomsUsersTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
