@@ -13,7 +13,7 @@ class Api::V1::PresetsController < Api::V1::ApiController
 	end
 
 	def show
-		render :json => Preset.all
+		render :json => Preset.where(:owner => current_user.id)
 	end
 
 	def update
