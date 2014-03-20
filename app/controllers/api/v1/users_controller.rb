@@ -2,7 +2,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 	skip_before_filter :api_session_token_authenticate!, only: [:has_password, :set_password]
 
 	def devices
-		render :json => current_user.zones(include: :x10_devices).to_json(include: :x10_devices), :status => :ok
+		render :json => current_user.rooms(include: :x10_devices).to_json(include: :x10_devices), :status => :ok
 	end
 
 	def register_device_token
