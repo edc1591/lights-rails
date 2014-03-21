@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   has_many :presets
   has_many :rooms_users
   has_many :rooms, through: :rooms_users
-  attr_accessible :device_token
+  serialize :device_tokens
+  attr_accessible :device_tokens
 
   def password=(secret)
     write_attribute(:password, BCrypt::Password.create(secret))

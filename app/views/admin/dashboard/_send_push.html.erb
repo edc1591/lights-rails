@@ -8,7 +8,7 @@
 	<%= select_tag(:sound, options_for_select([['Silent', 'silent'], ['Default', 'default']])) %>
 	</br>
 	<ul>
-	  <% User.where.not(device_token: nil).each do |user| %>
+	  <% User.where.not(device_tokens: nil).each do |user| %>
 	      <li>
 	        <%= check_box_tag 'user_ids[]', user.id -%>
 	        <%= h user.username -%>

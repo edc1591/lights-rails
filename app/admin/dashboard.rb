@@ -4,11 +4,13 @@ ActiveAdmin.register_page "Dashboard" do
 
   page_action :push, :method => :post do
     params[:user_ids].each do |user_id|
-      notification = Houston::Notification.new(device: User.find_by_id(user_id).device_token)
-      notification.alert = params[:alert]
-      notification.badge = params[:badge]
-      notification.sound = params[:sound] unless params[:sound] == 'silent'
-      APN.push(notification)
+      User.find_by_id(user_id).device_tokens.each do |token|
+        notification = Houston::Notification.new(device: token)
+        notification.alert = params[:alert]
+        notification.badge = params[:badge]
+        notification.sound = params[:sound] unless params[:sound] == 'silent'
+        APN.push(notification)
+      end
     end
     redirect_to admin_dashboard_path, :notice => "Notification(s) Sent"
   end
