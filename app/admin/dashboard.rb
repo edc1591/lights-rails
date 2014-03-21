@@ -4,7 +4,8 @@ ActiveAdmin.register_page "Dashboard" do
 
   page_action :push, :method => :post do
     params[:user_ids].each do |user_id|
-      User.find_by_id(user_id).device_tokens.each do |token|
+      user = User.find_by_id(user_id)
+      user.device_tokens.each do |token|
         notification = Houston::Notification.new(device: token)
         notification.alert = params[:alert]
         notification.badge = params[:badge]

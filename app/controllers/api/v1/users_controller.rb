@@ -9,7 +9,9 @@ class Api::V1::UsersController < Api::V1::ApiController
 		if current_user.device_tokens.nil?
 			current_user.device_tokens = Array.new
 		end
-		current_user.device_tokens << params[:device_token]
+		unless current_user.device_tokens.include?(params[:device_token])
+		  current_user.device_tokens << params[:device_token]
+		end
 		current_user.save
 		render :nothing => true
 	end
