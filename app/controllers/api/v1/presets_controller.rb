@@ -3,7 +3,7 @@ class Api::V1::PresetsController < Api::V1::ApiController
 
 	def create
 		@preset = Preset.new(params[:preset])
-		@preset.owner = current_user.id
+		@preset.user_id = current_user.id
 
 		if @preset.save
 			render :json => @preset, :code => :ok
@@ -13,7 +13,7 @@ class Api::V1::PresetsController < Api::V1::ApiController
 	end
 
 	def show
-		render :json => Preset.where(:owner => current_user.id)
+		render :json => Preset.where(:user_id => current_user.id)
 	end
 
 	def update
