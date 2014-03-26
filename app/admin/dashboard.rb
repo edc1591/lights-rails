@@ -10,6 +10,7 @@ ActiveAdmin.register_page "Dashboard" do
         notification.alert = params[:alert]
         notification.badge = params[:badge]
         notification.sound = params[:sound] unless params[:sound] == 'silent'
+        notification.content_available = params[:content_available]
         APN.push(notification)
       end
     end

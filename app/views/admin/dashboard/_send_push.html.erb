@@ -7,6 +7,9 @@
 	</br>
 	<%= select_tag(:sound, options_for_select([['Silent', 'silent'], ['Default', 'default']])) %>
 	</br>
+	<%= label_tag :badge, "Content Available:" %>
+	<%= check_box_tag 'content_available' -%>
+	</br>
 	<ul>
 	  <% User.where.not(device_tokens: nil).each do |user| %>
 	      <li>
