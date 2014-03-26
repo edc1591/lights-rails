@@ -1,5 +1,5 @@
 desc "Send a silent push to schedule the sunset notification"
-task :update_feed => :environment do
+task :schedule_sunset => :environment do
   puts "Send sunset silent push"
   User.all.each do |user|
     user.device_tokens.each do |token|
