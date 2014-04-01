@@ -43,7 +43,7 @@ class ApiSessionToken
   end
 
   def valid?
-    !expired? || user.nil?
+    !expired? || !user.nil?
   end
 
   private
