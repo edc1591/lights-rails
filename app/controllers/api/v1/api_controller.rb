@@ -7,7 +7,7 @@ class Api::V1::ApiController < ApplicationController
   end
 
   def current_user
-    return current_api_session_token.user unless current_api_session_token.expired?
+    return current_api_session_token.user unless current_api_session_token.expired? || current_api_session_token.user.nil?
     _not_authorized "Token Expired"
   end
 
