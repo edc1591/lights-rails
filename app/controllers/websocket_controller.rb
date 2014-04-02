@@ -61,15 +61,15 @@ class WebsocketController < WebsocketRails::BaseController
   def record_metric(message=nil)
     # only record X10 events for now
 
-    if message[:eventType] == 9
-      device = X10Device.where(:deviceId => message[:device], :houseCode => message[:houseCode], :zone_id => message[:zone_id]).first
-      deviceName = device.name.gsub(/ /, '_')
-      #puts "recording stat for #{deviceName}"
-      if message[:command] == 0
-        ::NewRelic::Agent.increment_metric("Custom/X10_Command_#{deviceName}/off", 1)
-      elsif message[:command] == 1
-        ::NewRelic::Agent.increment_metric("Custom/X10_Command_#{deviceName}/on", 1)
-      end
-    end
+    # if message[:eventType] == 9
+    #   device = X10Device.where(:deviceId => message[:device], :houseCode => message[:houseCode], :zone_id => message[:zone_id]).first
+    #   deviceName = device.name.gsub(/ /, '_')
+    #   #puts "recording stat for #{deviceName}"
+    #   if message[:command] == 0
+    #     ::NewRelic::Agent.increment_metric("Custom/X10_Command_#{deviceName}/off", 1)
+    #   elsif message[:command] == 1
+    #     ::NewRelic::Agent.increment_metric("Custom/X10_Command_#{deviceName}/on", 1)
+    #   end
+    # end
   end
 end
