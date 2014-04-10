@@ -28,10 +28,14 @@ class Api::V1::UsersController < Api::V1::ApiController
 
 	def has_password
 		user = User.where(:username => params[:username]).first
-		if user.password.blank?
-			render :json => {:has_password => false}
+		if user.nil?
+			render json: {error: "User "+params[:username]+" does not exist."}, status: 404
 		else
-			render :json => {:has_password => true}
+			if user.password.blank?
+				render :json => {:has_password => false}
+			else
+				render :json => {:has_password => true}
+			end
 		end
 	end
 
