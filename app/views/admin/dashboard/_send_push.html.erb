@@ -1,9 +1,14 @@
 <%= form_tag(admin_dashboard_push_path, method: "post") do %>
+	<%= select_tag(:env, options_for_select([['Production', 'prod'], ['Development', 'dev']])) %>
+	</br>
 	<%= label_tag :alert, "Message:" %>
 	<%= text_field_tag :alert %>
 	</br>
 	<%= label_tag :badge, "Badge Count:" %>
 	<%= text_field_tag :badge, '0', size: 5 %>
+	</br>
+	<%= label_tag :custom, "Custom Data (JSON String):" %>
+	<%= text_field_tag :custom %>
 	</br>
 	<%= select_tag(:sound, options_for_select([['Silent', 'silent'], ['Default', 'default']])) %>
 	</br>
