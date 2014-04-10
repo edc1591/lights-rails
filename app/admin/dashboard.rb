@@ -11,7 +11,7 @@ ActiveAdmin.register_page "Dashboard" do
         notification.badge = params[:badge]
         notification.sound = params[:sound] unless params[:sound] == 'silent'
         notification.content_available = params[:content_available]
-        notification.custom_data = JSON.parse(params[:custom]) unless params[:custom].nil?
+        notification.custom_data = JSON.parse(params[:custom]) unless params[:custom] == ""
         if params[:env] == 'prod'
           APN.push(notification)
         elsif params[:env] == 'dev'
