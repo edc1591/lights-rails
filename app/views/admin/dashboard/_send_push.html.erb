@@ -1,6 +1,4 @@
 <%= form_tag(admin_dashboard_push_path, method: "post") do %>
-	<%= select_tag(:env, options_for_select([['Production', 'prod'], ['Development', 'dev']])) %>
-	</br>
 	<%= label_tag :alert, "Message:" %>
 	<%= text_field_tag :alert %>
 	</br>

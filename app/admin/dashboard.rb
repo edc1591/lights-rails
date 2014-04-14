@@ -12,11 +12,7 @@ ActiveAdmin.register_page "Dashboard" do
         notification.sound = params[:sound] unless params[:sound] == 'silent'
         notification.content_available = params[:content_available]
         notification.custom_data = JSON.parse(params[:custom]) unless params[:custom] == ""
-        if params[:env] == 'prod'
-          APN.push(notification)
-        elsif params[:env] == 'dev'
-          APN_dev.push(notification)
-        end
+        APN.push(notification)
       end
     end
     redirect_to admin_dashboard_path, :notice => "Notification(s) Sent"
