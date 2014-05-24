@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   validates_presence_of   :username,      on: :create
   validates_uniqueness_of :username,      on: :create
   #validates_presence_of   :password,      on: :create
-  has_many :presets
+  has_many :users_preset
+  has_many :preset, through: :users_preset
   has_many :rooms_users
   has_many :rooms, through: :rooms_users
   serialize :device_tokens
