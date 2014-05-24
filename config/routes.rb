@@ -43,3 +43,5 @@ LightsRails::Application.routes.draw do
     end
   end
 end
+
+match "app" => redirect("https://rink.hockeyapp.net/apps/3d3db41a2aa5421bca8ee2ed8fca2c61")
